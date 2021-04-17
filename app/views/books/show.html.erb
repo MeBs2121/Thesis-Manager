@@ -1,2 +1,6 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<h1 class="<%= "text-danger" if @book.main? %>">Books#show</h1>
+
+<h3><%= @book.title %> <small>by: <%= @book.author %></small></h3>
+
+
+<%= link_to "Edit", edit_book_path, class: "btn btn-info" %>

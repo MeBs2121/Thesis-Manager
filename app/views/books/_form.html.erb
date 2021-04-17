@@ -1,14 +1,20 @@
 <%= form_with(model: @book, local: true) do |f| %>
   <%#= render 'shared/error_messages', object: @book %>
 
-  <%= f.label :title %>
-  <%= f.text_field :title, class: 'form-control' %>
+  <div class="form_group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
 
+  <div class="form_group">
   <%= f.label :author %>
   <%= f.text_field :author, class: 'form-control' %>
+  </div>
 
-  <%= f.label :main %>
-  <%= f.text_field :main, class: 'form-control' %>
+  <div class="form_group mt-2">
+  <%= f.label :main, "メイン？" %>
+  <%= f.check_box :main, class: "edit-control" %>
+  </div>
 
   <%= f.submit "Add Book", class: "btn btn-primary mt-2" %>
 <% end %>

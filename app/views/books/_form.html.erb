@@ -1,0 +1,14 @@
+<%= form_with(model: @book, local: true) do |f| %>
+  <%#= render 'shared/error_messages', object: @book %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title, class: 'form-control' %>
+
+  <%= f.label :author %>
+  <%= f.text_field :author, class: 'form-control' %>
+
+  <%= f.label :main %>
+  <%= f.text_field :main, class: 'form-control' %>
+
+  <%= f.submit "Add Book", class: "btn btn-primary mt-2" %>
+<% end %>

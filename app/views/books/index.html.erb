@@ -1,2 +1,10 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+
+<% @books.each do |book| %>
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <%= book.user.username %>
+      <h5 class="card-title"><%= book.title %></h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+  </div>
+<% end %>

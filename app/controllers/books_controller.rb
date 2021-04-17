@@ -1,8 +1,12 @@
 class BooksController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index]
 
   def index
-    @books = current_user.books.all
+    if user_signed_in?
+      @books = current_user.books.all
+    else
+      redirect_to public_path
+    end
   end
 
   def show

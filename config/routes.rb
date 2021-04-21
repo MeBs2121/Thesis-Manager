@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   root to: 'books#index'
 
   get 'public', to: 'public#index'
-  resources :books
+  resources :books do
+    resources :notes
+  end
 
 end

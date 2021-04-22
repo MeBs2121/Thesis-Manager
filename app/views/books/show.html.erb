@@ -1,5 +1,7 @@
 <h1 class="<%= "text-danger" if @book.main? %>">Books#show</h1>
 
+<%= image_tag @book.image.variant(resize:'240x400') %>
+
 <h3><%= @book.title %> <small>by: <%= @book.author %></small></h3>
 
 

@@ -5,4 +5,12 @@ class Book < ApplicationRecord
 
   validates :title, presence:true
   validates :author, presence:true
+
+  validate :image_presence
+
+  def image_presence
+    unless image.attached?
+      errors.add(:image, 'must be attached')
+    end
+  end
 end

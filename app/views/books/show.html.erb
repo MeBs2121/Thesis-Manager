@@ -1,8 +1,25 @@
-<h1 class="<%= "text-danger" if @book.main? %>">Books#show</h1>
 
-<%= image_tag @book.image.variant(resize:'240x400') %>
+<div class="row">
+  <div class="col-md-4 book-info">
+    <%= image_tag @book.image.variant(resize:'240x400'), class: "mb-2" %>
+    <h3 class="font-weight-bold"><%= @book.title %></h3>
+    <h5 class="font-weight-light">by: <%= @book.author %></h5>
+  </div>
 
-<h3><%= @book.title %> <small>by: <%= @book.author %></small></h3>
+<div class="col-md-8 book-notes">
+  <% if @book.notes.any? %>
+    <% @book.notes.each do |note| %>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%= link_to note.title %></h5>
+        <p class="card-text"><%= note.page %></p>
+        <!-- <a href="#" class="btn btn-primary">Button</a> -->
+      </div>
+    </div>
+    <% end %>
+  <% end %>
+</div>
 
+</div>
 
-<%= link_to "Edit", edit_book_path, class: "btn btn-info" %>
+<%#= link_to "Edit", edit_book_path, class: "btn btn-info" %>

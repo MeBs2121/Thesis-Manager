@@ -1,16 +1,24 @@
 
-<div class="mb-4">
+<div class="row mb-4">
   <%= link_to "Add Book", new_book_path, class:"btn btn-outline-primary ml-auto" %>
 </div>
 
+<!-- 248 346 -->
 <div class="row">
   <% @books.each do |book| %>
-  <div class="card col-md-3 m-1 <%= "border-danger" if book.main? %>">
-    <div class="card-body">
-      <%= book.user.username %>
-      <h5 class="card-title"><%= link_to book.title, book_path(book) %></h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  <!--
+    <div class="card col-md-3 m-1 <%= "border-danger" if book.main? %>">
+      <div class="card-body">
+        <%= book.user.username %>
+        <h5 class="card-title"><%= link_to book.title, book_path(book) %></h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
     </div>
-  </div>
+    248 346 -->
+    <div class="row col-md-3 m-1 p-0 thumbnail">
+      <%= link_to book, class: "" do %>
+        <%= image_tag book.image, class: "book-thumb" %>
+      <% end %>
+    </div>
   <% end %>
 </div>

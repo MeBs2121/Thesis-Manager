@@ -1,1 +1,11 @@
 @import '~bootstrap/scss/bootstrap';
+
+.thumbnail {
+  display: inline-block;
+  height: 300px;
+}
+
+.book-thumb {
+  // width: 100%;
+  height: 100%;
+}

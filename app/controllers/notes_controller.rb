@@ -19,7 +19,7 @@ class NotesController < ApplicationController
     @note = @book.notes.build(note_params)
 
     if @note.save
-      redirect_to book_notes_path
+      redirect_to @book
     else
       render 'new'
     end

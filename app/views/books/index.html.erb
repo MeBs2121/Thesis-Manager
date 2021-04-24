@@ -6,7 +6,7 @@
 <!-- 248 346 -->
 <div class="row">
   <% @books.each do |book| %>
-  <!--
+
     <div class="card col-md-3 m-1 <%= "border-danger" if book.main? %>">
       <div class="card-body">
         <%= book.user.username %>
@@ -14,11 +14,6 @@
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
       </div>
     </div>
-    248 346 -->
-    <div class="row col-md-3 m-1 p-0 thumbnail">
-      <%= link_to book, class: "" do %>
-        <%= image_tag book.image, class: "book-thumb" %>
-      <% end %>
-    </div>
+
   <% end %>
 </div>

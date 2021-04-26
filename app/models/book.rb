@@ -1,6 +1,7 @@
 class Book < ApplicationRecord
   belongs_to :user
   has_many :notes
+  has_many :vocabularies
   # has_one_attached :image
 
   validates :title, presence:true

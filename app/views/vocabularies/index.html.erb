@@ -1,0 +1,7 @@
+<h2>Vocabularies</h2>
+
+<ul>
+  <% @vocabularies.each do |vocabulary| %>
+    <li><%= vocabulary.word %> : <%= vocabulary.meaning %></li>
+  <% end %>
+</ul>

@@ -11,7 +11,7 @@ class BooksController < ApplicationController
   end
 
   def show
-
+    @vocabulary = @book.vocabularies.build
   end
 
   def new

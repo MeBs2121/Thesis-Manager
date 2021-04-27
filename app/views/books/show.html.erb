@@ -1,23 +1,34 @@
 
 <div class="row">
 
-<div class="col-12 book-notes">
-  <div class="text-right mb-2">
-    <%= link_to "Add Note", new_book_note_path(@book), class: "btn btn-success" %>
-  </div>
-  <% if @book.notes.any? %>
-    <% @book.notes.each do |note| %>
-    <div class="card mb-2">
-      <div class="card-body">
-        <h5 class="card-title"><%= link_to note.title, book_note_path(note.book, note) %></h5>
-        <p class="card-text"><%= note.page %></p>
-        <!-- <a href="#" class="btn btn-primary">Button</a> -->
+  <div class="col-12 book-notes">
+    <div class="row">
+      <div class="col-md-9">
+        <div class=" mb-2">
+          <%= link_to "Add Note", new_book_note_path(@book), class: "btn btn-success" %>
+        </div>
+        <% if @book.notes.any? %>
+          <% @book.notes.each do |note| %>
+            <div class="list-group mb-2 col-11">
+              <%= link_to book_note_path(note.book, note), class: "list-group-item list-group-item-action" do %>
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1"><%= note.title %></h5>
+                <small class="text-muted">3 days ago</small>
+              </div>
+              <p class="mb-1">Some placeholder content in a paragraph.</p>
+              <small class="text-muted">And some muted small print.</small>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="col-md-3">
+        <div class="text-right mb-2">
+          <%= link_to "See Vocabularies", book_vocabularies_path(@book), class: "btn btn-primary" %>
+        </div>
+        <%= render 'vocabularies/form' %>
       </div>
     </div>
-    <% end %>
-  <% end %>
-</div>
+  </div>
 
 </div>
-
-<%#= link_to "Edit", edit_book_path, class: "btn btn-info" %>

@@ -1,6 +1,7 @@
 class VocabulariesController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
-  before_action :find_book
+  before_action :find_book, only: [:show, :new, :create, :edit, :update]
+  before_action :find_vocabulary, only: [:edit, :destroy]
 
   def index
     @vocabularies = Vocabulary.all
@@ -11,14 +12,15 @@ class VocabulariesController < ApplicationController
   end
 
   def new
-    @book = current_user.books.build
+    @vocabulary = @book.vocabularies.build
   end
 
   def create
-    @book = current_user.books.build(book_params)
+    @vocabulary = @book.vocabularies.build(vocabulary_params)
 
-    if @book.save
-      redirect_to books_path
+    if @vocabulary.save
+      flash[:success] = "added vocabulary successfly"
+      redirect_to root_path
     else
       render 'new'
     end
@@ -29,8 +31,8 @@ class VocabulariesController < ApplicationController
   end
 
   def update
-    if @book.update(book_params)
-      flash[:success] = "Profile updated"
+    if @vocabulary.update(vocabulary_params)
+      flash[:success] = "Vocabulary updated"
       redirect_to @book
     else
       render 'edit'
@@ -38,6 +40,8 @@ class VocabulariesController < ApplicationController
   end
 
   def destroy
+    @vocabulary.destroy
+    redirect_to book_vocabularies_path
   end
 
   private
@@ -48,5 +52,9 @@ class VocabulariesController < ApplicationController
 
     def find_book
       @book = Book.find(params[:book_id])
+    end
+
+    def find_vocabulary
+      @vocabulary = Vocabulary.find(params[:id])
     end
 end

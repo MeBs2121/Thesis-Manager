@@ -1,7 +1,11 @@
 <h2>Vocabularies</h2>
 
-<ul>
+<ul class="list-group col-md-8 col-12">
   <% @vocabularies.each do |vocabulary| %>
-    <li><%= vocabulary.word %> : <%= vocabulary.meaning %></li>
+    <li class="list-group-item">
+      <%= vocabulary.word %> : <%= vocabulary.meaning %>
+      <%= link_to "Dlete", book_vocabulary_path(vocabulary.book, vocabulary), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-danger float-right" %>
+      <%= link_to "Edit", edit_book_vocabulary_path(vocabulary.book, vocabulary), class: "btn btn-sm btn-success float-right mr-1" %>
+    </li>
   <% end %>
 </ul>

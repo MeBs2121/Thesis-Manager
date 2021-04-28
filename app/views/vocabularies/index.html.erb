@@ -1,11 +1,33 @@
 <h2>Vocabularies</h2>
 
-<ul class="list-group col-md-8 col-12">
-  <% @vocabularies.each do |vocabulary| %>
-    <li class="list-group-item">
-      <%= vocabulary.word %> : <%= vocabulary.meaning %>
-      <%= link_to "Dlete", book_vocabulary_path(vocabulary.book, vocabulary), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-danger float-right" %>
-      <%= link_to "Edit", edit_book_vocabulary_path(vocabulary.book, vocabulary), class: "btn btn-sm btn-success float-right mr-1" %>
-    </li>
-  <% end %>
-</ul>
+<div class="row">
+  <div class="col-12">
+    <div class="row">
+      <div class="col-md-9">
+        <ul class="list-group col-11">
+          <% @vocabularies.each do |vocabulary| %>
+          <li class="list-group-item">
+            <%= vocabulary.word %> : <%= vocabulary.meaning %>
+            <%= link_to "Dlete", book_vocabulary_path(vocabulary.book, vocabulary), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-danger float-right" %>
+            <%= link_to "Edit", edit_book_vocabulary_path(vocabulary.book, vocabulary), class: "btn btn-sm btn-success float-right mr-1" %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card ml-auto">
+          <h5 class="card-header">
+            Vocabulary
+          </h5>
+          <div class="card-body">
+            <h5 class="card-title">Add Vocabulary</h5>
+            <%= render 'form' %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+</div>

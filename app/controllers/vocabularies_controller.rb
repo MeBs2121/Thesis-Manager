@@ -1,10 +1,11 @@
 class VocabulariesController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
-  before_action :find_book, only: [:show, :new, :create, :edit, :update]
-  before_action :find_vocabulary, only: [:edit, :destroy]
+  before_action :find_book, only: [:index, :show, :new, :create, :edit, :update]
+  before_action :find_vocabulary, only: [:edit, :update, :destroy]
 
   def index
     @vocabularies = Vocabulary.all
+    @vocabulary = Vocabulary.new
   end
 
   def show
@@ -19,8 +20,7 @@ class VocabulariesController < ApplicationController
     @vocabulary = @book.vocabularies.build(vocabulary_params)
 
     if @vocabulary.save
-      flash[:success] = "added vocabulary successfly"
-      redirect_to root_path
+      redirect_to book_vocabularies_path(@vocabulary.book, @vocabulary), notice: "added vocabulary successfuly"
     end
 
   end
@@ -31,8 +31,7 @@ class VocabulariesController < ApplicationController
 
   def update
     if @vocabulary.update(vocabulary_params)
-      flash[:success] = "Vocabulary updated"
-      redirect_to @book
+      redirect_to book_vocabularies_path(@vocabulary.book, @vocabulary), notice: "vocabulary updated"
     else
       render 'edit'
     end

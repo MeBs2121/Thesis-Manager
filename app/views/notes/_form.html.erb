@@ -1,16 +1,7 @@
-<%= form_with(model: [@book, @note], local: true) do |f| %>
-<%#= render 'shared/error_messages', object: @book %>
-<% if @note.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@note.errors.count, "error") %> prohibited this note from being saved:</h2>
+<%= form_with(model: [@book, @note]) do |f| %>
+<div id="errors">
 
-    <ul>
-      <% @note.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+</div>
 
   <div class="form_group">
     <%= f.label :title %>

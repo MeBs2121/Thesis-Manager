@@ -20,8 +20,6 @@ class NotesController < ApplicationController
 
     if @note.save
       redirect_to @book
-    else
-      render 'new'
     end
   end
 

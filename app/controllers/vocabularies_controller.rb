@@ -21,9 +21,8 @@ class VocabulariesController < ApplicationController
     if @vocabulary.save
       flash[:success] = "added vocabulary successfly"
       redirect_to root_path
-    else
-      render 'new'
     end
+
   end
 
   def edit

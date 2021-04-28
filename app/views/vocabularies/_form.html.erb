@@ -1,22 +1,5 @@
 <%= form_with(model: [@book, @vocabulary]) do |f| %>
 
-<%
-=begin
-%>
-  <% if @vocabulary.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@vocabulary.errors.count, "error") %> prohibited this vocabulary from being saved:</h2>
-
-      <ul>
-        <% @vocabulary.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <%
-=end
-%>
 <div id="errors"></div>
 
   <div class="form-group">

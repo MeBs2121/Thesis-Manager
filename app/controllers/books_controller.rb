@@ -22,9 +22,7 @@ class BooksController < ApplicationController
     @book = current_user.books.build(book_params)
 
     if @book.save
-      redirect_to books_path
-    else
-      render 'new'
+      redirect_to books_path, notice: "Added Book successfuly"
     end
   end
 

@@ -4,7 +4,7 @@ class VocabulariesController < ApplicationController
   before_action :find_vocabulary, only: [:edit, :update, :destroy]
 
   def index
-    @vocabularies = Vocabulary.all
+    @vocabularies = Vocabulary.where(book_id: params[:book_id])
     @vocabulary = Vocabulary.new
   end
 

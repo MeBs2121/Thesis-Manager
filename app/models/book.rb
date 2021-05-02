@@ -5,7 +5,7 @@ class Book < ApplicationRecord
   # has_one_attached :image
 
   validates :title, presence:true
-  validates :author, presence:true
+  validates :author, presence:true, length: { within: 2..30 }
 
   # validate :image_presence
   #

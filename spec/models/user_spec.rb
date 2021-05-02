@@ -39,6 +39,18 @@ RSpec.describe User, type: :model do
         user.valid?
         expect(user.errors[:username]).to include("is too short (minimum is 2 characters)")
       end
+
+      it "is invalid with existed email" do
+        another_user = User.new(
+          username: "another",
+          email: "test@test.com",
+          password: "password"
+        )
+        another_user.valid?
+        expect(another_user.errors[:email]).to include("has already been taken")
+        # expect(another_user).to be_valid
+      end
+
     end #with invalid values
 
   end

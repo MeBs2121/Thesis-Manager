@@ -3,11 +3,12 @@
 <div class="row border-bottom mb-4">
   <h2 class="col-sm-8"><%= @note.title %></h2>
   <div class="col-sm-4 text-right note-btns">
-    <%= link_to "Edit", edit_book_note_path(@note.book, @book), class: "btn btn-success" %>
-    <%= link_to "Delete", book_note_path(@note.book, @book), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+    <%= link_to "Edit", edit_book_note_path(@note.book, @note), class: "btn btn-success" %>
+    <%= link_to "Delete", book_note_path(@note.book, @note), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
   </div>
 </div>
 
 <div class="note-body">
-  <%= safe_join(@note.body.split("\n"),tag(:br)) %>
+  <%#= safe_join(@note.body.split("\n\n"),tag(:br)) %>
+  <%= simple_format(@note.body) %>
 </div>

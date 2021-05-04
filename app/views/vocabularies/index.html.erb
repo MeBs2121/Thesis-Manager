@@ -1,33 +1,33 @@
-<h2>Vocabularies</h2>
+<h2 class="mb-2">Vocabularies</h2>
+
+<div class="row mb-2">
+  <div class="col-12">
+    <div class="card ml-auto">
+      <h5 class="card-header">
+        Add Vocabulary
+      </h5>
+      <div class="card-body">
+        <%= render 'form' %>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="row">
-  <div class="col-12">
-    <div class="row">
-      <div class="col-md-9">
-        <ul class="list-group col-11">
-          <% @vocabularies.each do |vocabulary| %>
-          <li class="list-group-item">
-            <%= vocabulary.word %> : <%= vocabulary.meaning %>
-            <%= link_to "Dlete", book_vocabulary_path(vocabulary.book, vocabulary), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-sm btn-danger float-right" %>
-            <%= link_to "Edit", edit_book_vocabulary_path(vocabulary.book, vocabulary), class: "btn btn-sm btn-success float-right mr-1" %>
-          </li>
-          <% end %>
-        </ul>
-      </div>
+  <div class="col-lg-12">
 
-      <div class="col-md-3">
-        <div class="card ml-auto">
-          <h5 class="card-header">
-            Vocabulary
-          </h5>
-          <div class="card-body">
-            <h5 class="card-title">Add Vocabulary</h5>
-            <%= render 'form' %>
-          </div>
+
+
+    <% @vocabularies.each do |vocabulary| %>
+      <div class="card p-3">
+        <div class="card-body p-0">
+          <h4 class="card-title text-primary"><%= vocabulary.word %></h4>
+          <p class="card-text pl-2"><%= vocabulary.meaning %></p>
         </div>
       </div>
-    </div>
+    <% end %>
 
-    </div>
+
+  </div>
 
 </div>

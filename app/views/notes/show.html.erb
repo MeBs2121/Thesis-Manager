@@ -1,4 +1,6 @@
 <h4><%= @note.book.title %><span class="ml-2 text-secondary"> p.<%= @note.page %></span></h4>
 
-<h2><%= @note.title %></h2>
-<p><%= @note.body %></p>
+<h2 class="border-bottom pb-2 mb-4"><%= @note.title %></h2>
+<div class="note-body">
+  <%= safe_join(@note.body.split("\n"),tag(:br)) %>
+</div>

@@ -23,7 +23,7 @@ class BooksController < ApplicationController
     @book = current_user.books.build(book_params)
 
     if @book.save
-      redirect_to books_path, notice: "Added Book successfuly"
+      redirect_to books_path, notice: "Created a new Book."
     end
   end
 
@@ -42,7 +42,7 @@ class BooksController < ApplicationController
 
   def destroy
     @book.destroy
-    redirect_to books_path
+    redirect_to books_path, notice: "Deleted Book"
   end
 
   private

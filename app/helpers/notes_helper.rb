@@ -4,6 +4,6 @@ module NotesHelper
     # array.join()
 
     output = array.map{|x| x=="" ? "\n\n \n" : x}
-    output.join()
+    output.join(' ')
   end
 end

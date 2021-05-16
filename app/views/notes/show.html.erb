@@ -8,9 +8,10 @@
   </div>
 </div>
 
-<div class="note-body">
-  <%#= safe_join(@note.body.split("\n\n"),tag(:br)) %>
-  <%= simple_format(@note.body.gsub(/\n/, "<br />")) %>
+<div class="note-body pt-4">
+  <%#= simple_format(@note.body) %>
+  <%#= simple_format fix_text(@note.body.split(/\n\n/)) %>
+  <%#= fix_text(@note.body.split("\n")) %>
 
-  <%#= note_body(@note.body) %>
+  <%= simple_format fix_text(@note.body.split("\n")) %>
 </div>

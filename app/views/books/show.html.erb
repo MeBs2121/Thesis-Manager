@@ -4,7 +4,9 @@
     <div class="row">
       <div class="col-lg-9">
         <div class=" mb-2">
-          <%= link_to "Add Note", new_book_note_path(@book), class: "btn btn-success" %>
+          <%= link_to "Add Note", new_book_note_path(@book), class: "btn btn-success ml-2" %>
+          <%= link_to "New Category", new_category_path, class: "btn btn-primary" %>
+
         </div>
         <% if @notes.any? %>
           <% @notes.each do |note| %>

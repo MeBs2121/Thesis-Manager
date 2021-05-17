@@ -1,7 +1,7 @@
 class NotesController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
-  before_action :find_note, only: [:show, :edit, :update, :destroy]
   before_action :find_book
+  before_action :find_note, only: [:show, :edit, :update, :destroy]
 
   def index
       @notes = @book.notes.all
@@ -30,7 +30,7 @@ class NotesController < ApplicationController
   def update
     if @note.update(note_params)
       flash[:success] = "Note updated"
-      redirect_to @note
+      redirect_to book_note_path(@note.book, @note)
     else
       render 'edit'
     end

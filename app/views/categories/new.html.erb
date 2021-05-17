@@ -1,0 +1,17 @@
+<h2>Create Category</h2>
+
+
+
+
+<%= form_with(model: @category) do |f| %>
+<div id="errors">
+
+</div>
+
+  <div class="form_group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+
+  <%= f.submit "Submit", class: "btn btn-primary mt-2" %>
+<% end %>

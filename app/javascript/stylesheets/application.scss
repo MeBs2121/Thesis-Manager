@@ -1,4 +1,4 @@
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
 
 .thumbnail {
   display: inline-block;
@@ -11,18 +11,24 @@
 }
 
 .note-body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 32px;
   color: #333;
 }
 
-@media screen and (max-width:480px) {
+@media screen and (max-width: 480px) {
   .note-body {
     font-size: 18px;
   }
+
+  .book-show-btns {
+    font-size: 16px;
+    display: block;
+    margin-bottom: 5px;
+  }
 }
 
-@media screen and (max-width:720px) {
+@media screen and (max-width: 720px) {
   .note-btns {
     text-align: left !important;
     margin-bottom: 12px;

@@ -35,8 +35,9 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'mini_magick'
 
-gem 'seed_dump'
-
+# gem 'seed_dump'
+gem 'kaminari'
+gem 'bootstrap4-kaminari-views'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

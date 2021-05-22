@@ -12,7 +12,7 @@ class BooksController < ApplicationController
 
   def show
     @vocabulary = @book.vocabularies.build
-    @notes = @book.notes.all.includes(:categories)
+    @notes = @book.notes.all.includes(:categories).page(params[:page]).per(12)
   end
 
   def new

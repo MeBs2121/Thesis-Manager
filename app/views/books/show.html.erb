@@ -10,6 +10,7 @@
 
         </div>
         <% if @notes.any? %>
+          <%= paginate @notes, theme: 'twitter-bootstrap-4' %>
           <% @notes.each do |note| %>
             <div class="list-group mb-2 col-lg-11 pr-0">
               <%= link_to book_note_path(note.book, note), class: "list-group-item list-group-item-action" do %>
@@ -26,6 +27,7 @@
               <% end %>
             </div>
           <% end %>
+          <%= paginate @notes, theme: 'twitter-bootstrap-4' %>
         <% end %>
       </div>
 

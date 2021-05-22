@@ -15,7 +15,7 @@
 
 <div class="row">
   <div class="col-lg-12">
-
+    <%= paginate @vocabularies, theme: 'twitter-bootstrap-4' %>
     <% @vocabularies.each do |vocabulary| %>
       <div class="card p-3 card-voca mb-2">
         <div class="card-body p-0">

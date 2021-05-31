@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   # get 'public', to: 'public#index'
   resources :books do
+    get '/:category_id', to: 'books#show', as: 'tag'
     resources :notes
     resources :vocabularies
   end

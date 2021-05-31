@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
-  before_action :find_book, only: [:show, :edit, :update, :destroy]
+  before_action :find_book, only: [:edit, :update, :destroy]
 
   def index
     if user_signed_in?
@@ -11,8 +11,15 @@ class BooksController < ApplicationController
   end
 
   def show
+    @categories = Category.all
+    if params[:category_id].nil?
+      @book = Book.find(params[:id])
+      @notes = @book.notes.all.includes(:categories).page(params[:page]).per(10)
+    else
+      @book = Book.find(params[:book_id])
+      @notes = @book.notes.has_category_id(params[:category_id]).includes(:categories).page(params[:page]).per(10)
+    end
     @vocabulary = @book.vocabularies.build
-    @notes = @book.notes.all.includes(:categories).page(params[:page]).per(12)
   end
 
   def new

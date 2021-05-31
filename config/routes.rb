@@ -9,9 +9,15 @@ Rails.application.routes.draw do
 
   # get 'public', to: 'public#index'
   resources :books do
-    get '/:category_id', to: 'books#show', as: 'tag'
+    # member do
+    # get ':category_id', to: 'books#show', as: 'tag'
+    # end
     resources :notes
     resources :vocabularies
+  end
+  
+  resources :books do
+    
   end
 
   get 'welcome', to: 'public#index', as: "public"

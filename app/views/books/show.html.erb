@@ -33,6 +33,7 @@
 
       <div class="col-lg-3">
         <ul class="list-group mb-2">
+          <li class="list-group-item list-group-item-dark">Category</li>
           <li class="list-group-item"><%= link_to "All", book_path(@book) %></li>
           <% @categories.each do |c| %>
           <li class="list-group-item"><%= link_to c.name, book_tag_path(@book.id, c.id) %></li>
